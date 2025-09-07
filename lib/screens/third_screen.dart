@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DetailScreen extends StatelessWidget {
-  static String routeName = '/detail';
+class ThirdScreen extends StatelessWidget {
+  static String routeName = '/third';
   final String message;
-  const DetailScreen({super.key, required this.message});
+  const ThirdScreen({super.key, required this.message});
   @override
   Widget build(BuildContext context) {
     final args =
         ModalRoute.of(context)?.settings.arguments as Map<String, String>;
     return Scaffold(
-      appBar: AppBar(title: Text('Detail Screen')),
+      appBar: AppBar(title: Text('Third Screen')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -19,7 +19,7 @@ class DetailScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context, '[item1 detail returned!]');
+                Navigator.pop(context, '[item2 third returned!]');
               },
               child: Text('Go back'),
             ),

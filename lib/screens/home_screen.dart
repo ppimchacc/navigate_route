@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:navigate_route/screens/detail_screen.dart';
+import 'detail_screen.dart';
+import 'third_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = '/home';
@@ -10,16 +11,38 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Home Screen')),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () async{ 
-            final result = await  Navigator.pushNamed(
-              context,
-              DetailScreen.routeName,
-              arguments: {'itemId': 'Item-456', 'message': 'ข้อมูลผ่าน arguments'},
-            );
-            print("ได้ค่ากลับมา คือ: $result");
-          },
-          child: Text('Go to Detail Screen'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+                final result = await Navigator.pushNamed(
+                  context,
+                  DetailScreen.routeName,
+                  arguments: {
+                    'itemId': 'Item-456',
+                    'message': 'ข้อมูลผ่าน arguments',
+                  },
+                );
+                print("ได้ค่ากลับมา คือ: $result");
+              },
+              child: Text('Go to Detail Screen'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final result = await Navigator.pushNamed(
+                  context,
+                  ThirdScreen.routeName,
+                  arguments: {
+                    'itemId': 'Item-789',
+                    'message': 'ข้อมูลผ่าน Third Screen',
+                  },
+                );
+                print("ได้ค่ากลับมา คือ: $result");
+              },
+              child: Text('Go to Third Screen'),
+            ),
+          ],
         ),
       ),
     );
